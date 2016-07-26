@@ -2,7 +2,7 @@
 
 - `ZimbraServer/conf/tz`
 - `ZimbraServer/conf/timezones.ics`
-- `ZimbraWebClient/WebRoot/messages/AjxMsg* (partial)`
+- `ZimbraWebClient/src/com/zimbra/kabuki/tools/tz/*`
 
 ## Dependencies
 
@@ -10,10 +10,7 @@
 
 ## Artifacts
 
-- `Localized timezone names`
 - `timezones.ics`
-
-**TODO:**
-
-- Determine the exact artifact requirements.  This has to be coordinated with the client team.
-- Look into parameterizing time zone offsets in localizations 
+- `Localized timezone names`
+- `AjxTimezoneData.js`
+- `install-tzdata` script
