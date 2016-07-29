@@ -43,7 +43,8 @@ To generate an updated `timezones.ics`, follow these steps.
 2. Download the archive of the latest Olson tzdata files to this
 directory.  As of October 2014, these were obtainable from:
 <http://www.iana.org/time-zones> The latest version at that date was
-`tzdata2014i.tar.gz`
+`tzdata2014i.tar.gz`  A full list of *all* Olson tzdata files are available [here](ftp://ftp.iana.org/tz/releases/).
+3. Update the URL contained in the file `tz-src-url.txt` with the URL of the file that you downloaded.
 3. Extract the data from these archives into the `tzdata` sub-directory.
    (substitute the correct letters for **?????** in this command)
 
