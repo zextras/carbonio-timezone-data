@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="zm-timezones" default="timezones">
+  <import file="../zm-zcs/ant-global.xml"/>
+
+  <!-- Properties -->
+  <property name="build.conf.dir" value="${build.dir}/conf"/>
+  <property name="build.web.dir" value="${build.dir}/WebRoot"/>
+  <property name="build.js.dir" value="${build.web.dir}/js"/>
+  <property name="build.webinf.dir" value="${build.web.dir}/WEB-INF"/>
+  <property name="build.bin.dir" value="${build.dir}/bin"/>
+  <property name="deploy.file.name" value="deploy-timezones"/>
+  <property name="tz.data" value="conf/timezones.ics"/>
+  <property name="tz.dir" value="${build.js.dir}/ajax/util"/>
+  <property name="tz.file" value="${tz.dir}/AjxTimezoneData.js"/>
+  <property name="message.dir" value="${build.webinf.dir}/classes/messages"/>
+
+  <!-- deploy -->
+  <target name="deploy" depends="timezones" description="Deploy timezone files">
+    <ant dir="${server.dir}" target="stop-webserver" inheritAll="false"/>
+    <exec executable="${build.bin.dir}/${deploy.file.name}"/>
+    <ant dir="${server.dir}" target="start-webserver" inheritAll="false"/>
+  </target>
+
+  <!-- timezones -->
+  <target name="timezones" depends="compile" description="generate timezone files">
+    <taskdef name="timezones" classname="com.zimbra.kabuki.tools.tz.GenerateDataTask" classpathref="test.class.path"/>
+    <mkdir dir="${tz.dir}"/>
+    <timezones src="${tz.data}" dest="${tz.file}"/>
+    <mkdir dir="${message.dir}"/>
+    <copy todir="${message.dir}">
+      <fileset dir="messages" includes="*.properties" />
+    </copy>
+    <mkdir dir="${build.bin.dir}"/>
+    <copy file="bin/${deploy.file.name}" tofile="${build.bin.dir}/${deploy.file.name}"/>
+    <chmod file="${build.bin.dir}/${deploy.file.name}" perm="a+x"/>
+    <mkdir dir="${build.conf.dir}"/>
+    <copy file="${tz.data}" todir="${build.conf.dir}"/>
+  </target>
+</project>
