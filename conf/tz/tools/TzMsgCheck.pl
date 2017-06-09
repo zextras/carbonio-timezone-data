@@ -7,11 +7,11 @@ use File::stat;
 use File::Copy;
 
 $sc_name              = basename("$0");
-$usage                = "usage: $sc_name -t timezones.ics [-p AjxMsg.properties]\n";
+$usage                = "usage: $sc_name -t timezones.ics [-p TzMsg.properties]\n";
 
 getopts('t:p:') or die "$usage";
 
-local $ajxprops = "../../../../ZimbraWebClient/WebRoot/messages/AjxMsg.properties";
+local $ajxprops = "../../../messages/TzMsg.properties";
 
 die "$usage" if (!$opt_t);
 $tzics = "$opt_t";

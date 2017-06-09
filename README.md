@@ -3,8 +3,7 @@
 The `zm-timezones` package allows for frequent updating of timezone information
 without having to build and reinstall the webapps that use this information.
 The new `TzMsg*.properties` files were created by extracting the timezone
-strings from the `AjxMsg*.properties` files.  The UI team should remove the
-timezone strings from these files and update the following projects to load the
+strings from the `AjxMsg*.properties` files. Following projects are using 
 `TzMsg*.properties`:
 
 - `zm-web-client`
@@ -168,7 +167,7 @@ properties happens.  For an example previous bug, see [Bug 96974](https://bugzil
 
 This tool may help determine if any of the offsets in the main `TzMsg.properties` file are incorrect.
 
-        (cd tools && ./AjxMsgCheck.pl -t ../../timezones.ics)
+        (cd tools && ./TzMsgCheck.pl -t ../../timezones.ics)
 
 ### ZoneMatchScore section
 
@@ -229,10 +228,11 @@ they are installed to one of the standard locations, such as
 
 - `bin`
 - `conf`
-- `WebRoot`
+- `messages`
+- `js`
 
 After installation, the post-install hook should run the `deploy-timezones`
-script located in `<package-dir>/bin`.  This will copy the timezone-related
+script located in `<package-dir>/src/bin`.  This will copy the timezone-related
 files to the proper locations and set ownership and permissions appropriately.
 
 In addition, the post-install hooks for `zm-web-client` and `zm-admin-console`
