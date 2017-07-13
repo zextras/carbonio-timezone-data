@@ -98,6 +98,8 @@ foreach $my_prop (sort keys(%propinfo)) {
 }
 if ($problems eq "n") {
     print "No problems found with $ajxprops\n";
+} else {
+    exit 1;
 }
 exit 0;
 

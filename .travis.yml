@@ -1,0 +1,11 @@
+git:
+  depth: 1
+
+language: python
+
+jobs:
+  include:
+    - stage: primary_zones
+      script: cd conf/tz/tools && ./checkPrimaryZones.py
+    - stage: message_check
+      script: cd conf/tz/tools && ./TzMsgCheck.pl -t ../../timezones.ics
