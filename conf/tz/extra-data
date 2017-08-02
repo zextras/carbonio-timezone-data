@@ -76,6 +76,7 @@ PrimaryZone	Asia/Kathmandu
 PrimaryZone	Asia/Almaty
 PrimaryZone	Asia/Dhaka
 PrimaryZone	Asia/Yekaterinburg
+PrimaryZone	Asia/Yangon
 PrimaryZone	Asia/Rangoon
 PrimaryZone	Asia/Bangkok
 PrimaryZone	Asia/Novosibirsk
@@ -114,6 +115,28 @@ PrimaryZone	Africa/Tripoli
 PrimaryZone	Pacific/Apia
 PrimaryZone	Asia/Kamchatka
 PrimaryZone	Asia/Singapore
+PrimaryZone	Europe/Chisinau
+PrimaryZone	America/Havana
+PrimaryZone	Pacific/Easter
+PrimaryZone	Asia/Barnaul
+PrimaryZone	America/Miquelon
+PrimaryZone	Asia/Hovd
+PrimaryZone	Asia/Omsk
+PrimaryZone	America/Araguaina
+PrimaryZone	Europe/Saratov
+PrimaryZone	Europe/Astrakhan
+PrimaryZone	Asia/Gaza
+PrimaryZone	America/Port-au-Prince
+PrimaryZone	America/Adak
+PrimaryZone	Australia/Eucla
+PrimaryZone	Asia/Chita
+PrimaryZone	America/Punta_Arenas
+PrimaryZone	Pacific/Marquesas
+PrimaryZone	Pacific/Chatham
+PrimaryZone	Asia/Sakhalin
+PrimaryZone	Australia/Lord_Howe
+PrimaryZone	Asia/Tomsk
+PrimaryZone	Pacific/Norfolk
 # The Autonomous Region of Bougainville plans to switch from UTC+10 to UTC+11
 # on 2014-12-28 at 02:00.  They call UTC+11 "Bougainville Standard Time";
 PrimaryZone	Pacific/Bougainville
