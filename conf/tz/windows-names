@@ -11,6 +11,8 @@ Link	Pacific/Midway		"(GMT-11.00) Midway Island / Samoa"
 Link	Pacific/Midway		"(UTC-11.00) Samoa"
 Link	Pacific/Midway		"(GMT-11.00) Samoa"
 Link	Pacific/Honolulu	"Hawaiian Standard Time"
+Link	Pacific/Honolulu	"Aleutian Standard Time"
+Link	Pacific/Honolulu	"(UTC-10.00) Aleutian Islands"
 Link	Pacific/Honolulu	"(UTC-10.00) Hawaii"
 Link	Pacific/Honolulu	"(GMT-10.00) Hawaii"
 Link	America/Adak		"Aleutian Standard Time"
@@ -19,16 +21,23 @@ Link	America/Anchorage	"Alaskan Standard Time"
 Link	America/Anchorage	"(UTC-09.00) Alaska"
 Link	America/Anchorage	"(GMT-09.00) Alaska"
 Link	America/Anchorage	"(UTC-09.00)"
+<<<<<<< HEAD
 Link	America/Anchorage	"UTC-09"
 Link	Pacific/Marquesas	"Marquesas Standard Time"
 Link	Pacific/Marquesas	"(UTC-09.30) Marquesas Islands"
+=======
+Link	America/Anchorage	"(UTC-09.00) Coordinated Universal Time-09"
+>>>>>>> 8.8.0beta2
 Link	America/Tijuana		"Pacific Standard Time (Mexico)"
 Link	America/Tijuana		"(UTC-08.00) Baja California"
 Link	America/Tijuana		"(GMT-08.00) Baja California"
 Link	America/Tijuana		"(GMT-08.00) Baja California"
+<<<<<<< HEAD
 Link	America/Tijuana		"UTC-08"
 Link	America/Tijuana		"(UTC-08.00) Tijuana / Baja California"
 Link	America/Tijuana		"(GMT-08.00) Tijuana / Baja California"
+=======
+>>>>>>> 8.8.0beta2
 Link	America/Los_Angeles	"Pacific Standard Time"
 Link	America/Los_Angeles	"(UTC-08.00) Pacific Time (US & Canada)"
 Link	America/Los_Angeles	"(GMT-08.00) Pacific Time (US & Canada)"
@@ -151,10 +160,17 @@ Link	America/Montevideo	"Montevideo Standard Time"
 Link	America/Montevideo	"(UTC-03.00) Montevideo"
 Link	America/Montevideo	"(GMT-03.00) Montevideo"
 Link	America/Punta_Arenas		"Magallanes Standard Time"
+<<<<<<< HEAD
 Link	America/Punta_Arenas	"(UTC-03.00) Punta Arenas"
 Link	America/Miquelon		"Saint Pierre Standard Time"
 Link	America/Miquelon		"(UTC-03.00) Saint Pierre and Miquelon"
 Link	Africa/Casablanca		"(UTC+00.00) Casablanca"
+=======
+Link	America/Punta_Arenas		"(UTC-03.00) Punta Arenas
+Link	America/Miquelon		"Saint Pierre Standard Time"
+Link	America/Miquelon		"(UTC-03.00) Saint Pierre and Miquelon"
+LInk	Africa/Casablanca		"(UTC+00.00) Casablanca"
+>>>>>>> 8.8.0beta2
 Link	Etc/GMT+2		"UTC-02"
 Link	Etc/GMT+2		"(UTC-02.00) Coordinated Universal Time-02"
 Link	Etc/GMT+2		"(GMT-02.00) Coordinated Universal Time-02"
@@ -387,8 +403,11 @@ Link	Asia/Bangkok		"(UTC+07.00) Bangkok / Hanoi / Jakarta"
 Link	Asia/Bangkok		"(GMT+07.00) Bangkok / Hanoi / Jakarta"
 Link	Asia/Barnaul		"Altai Standard Time"
 Link	Asia/Barnaul		"(UTC+07.00) Barnaul, Gorno-Altaysk"
+<<<<<<< HEAD
 Link	Asia/Tomsk		"Tomsk Standard Time"
 Link	Asia/Tomsk		"(UTC+07.00) Tomsk"
+=======
+>>>>>>> 8.8.0beta2
 Link	Asia/Krasnoyarsk	"North Asia Standard Time"
 Link	Asia/Krasnoyarsk	"(UTC+07.00) Krasnoyarsk"
 Link	Asia/Krasnoyarsk	"(GMT+07.00) Krasnoyarsk"
@@ -540,3 +559,8 @@ Link	Pacific/Kiritimati	"Line Islands Standard Time"
 Link	Pacific/Kiritimati	"(UTC+14.00) Kiritimati Island"
 Link	Pacific/Kiritimati	"(GMT+14.00) Kiritimati Island"
 Link	Pacific/Kiritimati	"(GMT+14.00) Kiritimati Island"
+Link	Pacific/Marquesas  "Marquesas Standard Time"
+Link	Pacific/Marquesas  "(UTC-09.30) Marquesas Islands"
+Link	Pacific/Easter	"Easter Island Standard Time"
+Link	Pacific/Easter	"(UTC-06.00) Easter Island"
+
