@@ -7,11 +7,11 @@ use File::stat;
 use File::Copy;
 
 $sc_name              = basename("$0");
-$usage                = "usage: $sc_name -t timezones.ics [-p AjxMsg.properties]\n";
+$usage                = "usage: $sc_name -t timezones.ics [-p TzMsg.properties]\n";
 
 getopts('t:p:') or die "$usage";
 
-local $ajxprops = "../../../../zm-ajax/WebRoot/messages/AjxMsg.properties";
+local $ajxprops = "../../../messages/TzMsg.properties";
 
 die "$usage" if (!$opt_t);
 $tzics = "$opt_t";
@@ -98,6 +98,8 @@ foreach $my_prop (sort keys(%propinfo)) {
 }
 if ($problems eq "n") {
     print "No problems found with $ajxprops\n";
+} else {
+    exit 1;
 }
 exit 0;
 

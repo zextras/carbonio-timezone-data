@@ -19,9 +19,8 @@
 BIN_DIR=$(dirname $0)
 BASE_DIR=$(dirname $BIN_DIR)
 CONF_DIR="${BASE_DIR}/conf"
-WR_DIR="${BASE_DIR}/WebRoot"
-JS_DIR="${WR_DIR}/js"
-WEB_INF_DIR="${WR_DIR}/WEB-INF"
+JS_DIR="${BASE_DIR}/js"
+MSG_DIR="${BASE_DIR}/messages"
 
 TZ_FILE="timezones.ics"
 TZD_FILE="AjxTimezoneData.js"
@@ -40,11 +39,11 @@ function deployApp {
     # Install WebRoot/js/ajax/util/AjxTimezoneData.js
     tzd_path="${app}/js/ajax/util/${TZD_FILE}"
     winf_path="${app}/WEB-INF/classes/messages"
-    cp "${JS_DIR}/ajax/util/${TZD_FILE}" "${tzd_path}"
+    cp "${JS_DIR}/${TZD_FILE}" "${tzd_path}"
     chmod 664 "${tzd_path}"
     chown $USER:$USER "${tzd_path}"
     # Install WebRoot/WEB-INF/classes/messages
-    cp "${WEB_INF_DIR}/classes/messages/"${PROPS_FILES} "${winf_path}/."
+    cp "${MSG_DIR}/"${PROPS_FILES} "${winf_path}/."
     chmod 664 "${winf_path}/"${PROPS_FILES}
     chown $USER:$USER "${winf_path}/"${PROPS_FILES}
 }

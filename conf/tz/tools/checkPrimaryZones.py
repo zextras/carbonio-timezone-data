@@ -53,6 +53,7 @@ for line in winTZInfo:
 
 wToOlsen = {}
 olsenToW = {}
+error = False
 windowsNamesLines = getLinesForFile(options.windowsNamesFile)
 for line in windowsNamesLines:
     lineDetails = line.split('\t')
@@ -69,6 +70,7 @@ for line in windowsNamesLines:
     if olsenName in olsenToW:
         prevWinName = olsenToW[olsenName]
         print "Olsen name '{0}' maps to both '{1}' and '{2}'".format(olsenName, prevWinName, winName)
+        error = True
     else:
         olsenToW[olsenName] = winName
 
@@ -90,8 +92,12 @@ for k, v in wToOlsen.iteritems():
         missingPrimaries.append(v)
 
 if len(missingPrimaries) > 0:
+    error = True
     print "Lines to add to {0}".format(options.extraDataFile)
     for zone in missingPrimaries:
         print "PrimaryZone\t{0}".format(zone)
+
+if error:
+    sys.exit(1)
 
 sys.exit(0)

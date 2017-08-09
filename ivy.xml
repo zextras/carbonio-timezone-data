@@ -2,9 +2,12 @@
 <ivy-module version="2.0"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
- <info organisation="zimbra" module="zm-timezones" status="integration">
- </info>
+ <info organisation="zimbra" module="zm-timezones" status="integration" />
+ <publications>
+  <artifact name="zm-timezones" type="zip" />
+ </publications>
  <dependencies>
+  <dependency org="ant" name="ant" rev="1.6.5"/>
   <dependency org="zimbra" name="zm-common" rev="latest.integration" />
  </dependencies>
 </ivy-module>
