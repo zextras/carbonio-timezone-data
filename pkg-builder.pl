@@ -19,9 +19,6 @@ sub parse_defines()
 {
    Die("wrong commandline options")
      if ( !GetOptions( "defines=s" => \%DEFINES ) );
-
-   Die("jetty.distro not specified (--define jetty.distro=<xxxx>)")
-     if ( !exists $DEFINES{'jetty.distro'} );
 }
 
 sub cpy_file($$)
@@ -82,8 +79,8 @@ sub stage_zimbra_timezone_data()
 
    foreach my $webapp_name ( "zimbra", "zimbraAdmin" )
    {
-      cpy_file( "build/js/AjxTimezoneData.js",           "$stage_base_dir/opt/zimbra/$DEFINES{'jetty.distro'}/webapps/$webapp_name/js/ajax/util/AjxTimezoneData.js" );
-      cpy_file( "build/messages/$_",    "$stage_base_dir/opt/zimbra/$DEFINES{'jetty.distro'}/webapps/$webapp_name/WEB-INF/classes/messages/$_" )
+      cpy_file( "build/js/AjxTimezoneData.js",           "$stage_base_dir/opt/zimbra/jetty_base/webapps/$webapp_name/js/ajax/util/AjxTimezoneData.js" );
+      cpy_file( "build/messages/$_",    "$stage_base_dir/opt/zimbra/jetty_base/webapps/$webapp_name/WEB-INF/classes/messages/$_" )
          foreach( map { basename($_); } glob("build/messages/TzMsg*.properties") );
    }
 
