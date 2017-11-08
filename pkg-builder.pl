@@ -144,7 +144,7 @@ sub make_package($)
    System(@cmd);
 }
 
-sub depth_first_traverse_package($)
+sub depth_first_traverse_package
 {
    my $pkg_name = shift;
 
@@ -179,6 +179,19 @@ sub main
    foreach my $pkg_name ( sort keys %PKG_GRAPH )
    {
       depth_first_traverse_package($pkg_name);
+   }
+
+   if ( -f "/etc/redhat-release" )
+   {
+      system( "which createrepo 1>/dev/null 2>/dev/null" );
+      system("cd build/dist/[ucr]* && createrepo '.'")
+         if( $? == 0 );
+   }
+   else
+   {
+      system( "which dpkg-scanpackages 1>/dev/null 2>/dev/null" );
+      system( "cd build/dist/[ucr]* && dpkg-scanpackages '.' /dev/null > Packages" )
+         if( $? == 0 );
    }
 }
 
