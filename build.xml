@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project name="zm-timezones" default="timezones">
-  <import file="../zm-zcs/ant-global.xml"/>
+  <import file="build-common.xml"/>
 
   <!-- Properties -->
   <property name="build.conf.dir" value="${build.dir}/conf"/>
@@ -11,15 +11,8 @@
   <property name="tz.file" value="${tz.dir}/AjxTimezoneData.js"/>
   <property name="message.dir" value="${build.dir}/messages"/>
 
-  <target name="jar" depends="timezones" description="Creates the zip file">
-    <antcall target="zimbra-zip" />
-  </target>
-
-  <!-- deploy -->
-  <target name="deploy" depends="timezones" description="Deploy timezone files">
-    <ant dir="${server.dir}" target="stop-webserver" inheritAll="false"/>
-    <exec executable="${build.bin.dir}/${deploy.file.name}"/>
-    <ant dir="${server.dir}" target="start-webserver" inheritAll="false"/>
+  <target name="zip" depends="timezones" description="Creates the zip file">
+    <zip destfile="${build.dir}/${ant.project.name}-${git.timestamp}.zip" update="true" basedir="${build.dir}" excludes="${ant.project.name}-${git.timestamp}.zip" />
   </target>
 
   <path id="compile.path">

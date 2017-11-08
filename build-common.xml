@@ -1,0 +1,98 @@
+<project name="build-common" xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:antcontrib="antlib:net.sf.antcontrib">
+    <!-- Set properties that can be used in all projects. -->
+    <dirname property="zimbra.root.dir" file="${ant.file.build-common}/../"/>
+    <dirname property="project.basedir" file="${ant.file.build-common}"/>
+    <!-- Java -->
+    <property name="javac.target" value="1.8"/>
+    <!-- base path for ivy cache, local repository, ant libraries, etc -->
+
+    <property name="dev.home"  value="${user.home}"/>
+
+    <!-- Add "init-ivy" depends to your "resolve" target and the following will
+         automatically download and install ivy if necessary. -->
+    <property name="ivy.jar.dir" location="${dev.home}/.ant/lib" />
+    <property name="ivy.install.version" value="2.3.0" />
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-2.3.0.jar" />
+    <property name="ivy.status" value="integration" />
+    <property name="ivy.organisation" value="zimbra" />
+    <property name="ivy.publish.src.artifacts.pattern" value="build/[artifact]-[revision].[ext]" />
+    <property name="ivy.module" value="${ant.project.name}" />
+
+    <target name="test.if.ivy.available">
+      <condition property="ivy.installed">
+        <available file="${ivy.jar.file}" type="file"/>
+      </condition>
+    </target>
+
+    <target name="download-ivy" description="Install ivy" unless="ivy.installed" depends="test.if.ivy.available">
+        <mkdir dir="${ivy.jar.dir}"/>
+        <get src="https://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar"
+             dest="${ivy.jar.file}" usetimestamp="true"/>
+     </target>
+
+    <target name="init-ivy" depends="download-ivy">
+      <!-- If ivy is not downloaded yet, try to load ivy here from ivy home. -->
+        <path id="ivy.lib.path">
+            <fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+        </path>
+        <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path"/>
+    </target>
+
+    <!-- common resolve target that should work to resolve dependencies based on ivy.xml for most projects -->
+    <target name="resolve" depends="init-ivy" description="resolve dependencies">
+      <ivy:settings id="dev.settings" file="build-ivysettings.xml"/>
+      <ivy:resolve settingsRef="dev.settings" />
+      <ivy:cachepath pathid="class.path" />
+    </target>
+
+    <target name="3rd-party-defines"  description="Declare 3rd party ANT tasks" depends="resolve">
+      <taskdef uri="antlib:net.sf.antcontrib" classpathref="class.path"/>
+    </target>
+
+    <!-- Ignore the classpath from the shell running ant.  This avoids dependency
+      on the user's environment and suppresses the warning about includeAntRuntime. -->
+    <property name="build.sysclasspath" value="ignore"/>
+
+    <exec executable="git" outputproperty="git.timestamp">
+       <arg value="log"/>
+       <arg value="-1"/>
+       <arg value="--pretty=format:%at"/>
+    </exec>
+
+    <!-- Standard directory paths -->
+    <property name="src.dir" location="src" />
+    <property name="src.java.dir" location="src/java" />
+    <property name="src.bin.dir" location="src/bin" />
+    <property name="build.dir" location="build" />
+    <property name="build.tmp.dir" location="${build.dir}/tmp" />
+    <property name="dist.dir" location="${build.dir}/dist" />
+    <property name="build.classes.dir" location="${build.dir}/classes" />
+
+    <path id="all.java.path">
+        <pathelement location="${src.java.dir}" />
+    </path>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="build-init">
+      <mkdir dir="${build.classes.dir}"/>
+      <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="build-init,resolve,3rd-party-defines" description="Compiles from src/java into build/classes.">
+        <mkdir dir="${build.classes.dir}" />
+        <javac destdir="${build.classes.dir}" debug="true" classpathref="class.path" target="${javac.target}" encoding="utf-8">
+            <src refid="all.java.path" />
+        </javac>
+    </target>
+
+    <target name="clean-cache" description="Delete ivy cache">
+        <delete dir="${dev.home}/.ivy2/cache/zimbra/${ant.project.name}"/>
+        <delete>
+            <fileset dir="${dev.home}/.ivy2/cache" includes="*${ant.project.name}*"/>
+        </delete>
+    </target>
+</project>

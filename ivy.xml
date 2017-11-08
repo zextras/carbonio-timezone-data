@@ -8,7 +8,6 @@
  </publications>
  <dependencies>
   <dependency org="ant" name="ant" rev="1.6.5"/>
-  <dependency org="zimbra" name="zm-common" rev="latest.integration" />
  </dependencies>
 </ivy-module>
 
