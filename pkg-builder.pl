@@ -61,7 +61,7 @@ sub git_timestamp_from_dirs($)
 my %PKG_GRAPH = (
    "zimbra-timezone-data" => {
       summary    => "Zimbra Timezone Data",
-      version    => "1.0.0",
+      version    => "1.0.1",
       revision   => 1,
       hard_deps  => [],
       soft_deps  => [],
