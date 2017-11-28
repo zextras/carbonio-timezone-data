@@ -1,3 +1,6 @@
+## Build Status
+[![CircleCI](https://circleci.com/gh/Zimbra/zm-timezones/tree/develop.svg?style=svg)](https://circleci.com/gh/Zimbra/zm-timezones/tree/develop)
+
 ## Overview
 
 The `zm-timezones` package allows for frequent updating of timezone information
@@ -261,7 +264,3 @@ be required.
 - `Localized timezone names`
 - `AjxTimezoneData.js`
 - `deploy-timezones` script
-
-
-## Build Status
-[![Build Status](https://travis-ci.org/Zimbra/zm-timezones.svg?branch=develop)](https://travis-ci.org/Zimbra/zm-timezones)
