@@ -1,0 +1,6 @@
+ENV VARIABLES:
+   (none)
+
+AWS PERMISSIONS: (used by deploy_s3)
+   Access Key ID
+   Secret Access Key
