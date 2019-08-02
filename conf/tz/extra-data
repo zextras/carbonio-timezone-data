@@ -137,6 +137,10 @@ PrimaryZone	Asia/Sakhalin
 PrimaryZone	Australia/Lord_Howe
 PrimaryZone	Asia/Tomsk
 PrimaryZone	Pacific/Norfolk
+PrimaryZone	Africa/Sao_Tome
+PrimaryZone	Africa/Khartoum
+PrimaryZone	Europe/Volgograd
+PrimaryZone	Asia/Qyzylorda
 # The Autonomous Region of Bougainville plans to switch from UTC+10 to UTC+11
 # on 2014-12-28 at 02:00.  They call UTC+11 "Bougainville Standard Time";
 PrimaryZone	Pacific/Bougainville
@@ -166,3 +170,6 @@ ZoneMatchScore	Asia/Tokyo		200
 ZoneMatchScore	Australia/Sydney	200
 ZoneMatchScore	Australia/Brisbane	200
 ZoneMatchScore	Africa/Harare		200
+ZoneMatchScore	America/Anchorage	200
+ZoneMatchScore	America/Tijuana		200
+ZoneMatchScore	Pacific/Tongatapu	200

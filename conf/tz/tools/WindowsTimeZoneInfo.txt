@@ -152,7 +152,7 @@ ID: Easter Island Standard Time
    Standard Name:             Easter Island Standard Time
    Daylight Name:             Easter Island Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                      -6 hours, 0 minutes
-   Number of adjustment rules:                         10
+   Number of adjustment rules:                         13
    Adjustment Rules:
       From 01/01/0001 00:00:00 to 31/12/2007 00:00:00
       Delta: 01:00:00
@@ -190,10 +190,22 @@ ID: Easter Island Standard Time
       Delta: 00:00:00
       Begins at 00:00 on 1 January
       Ends at 00:00 on 1 January
-      From 01/01/2016 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
       Delta: 01:00:00
       Begins at 22:00 on Saturday of week 2 of August
       Ends at 22:00 on Saturday of week 2 of May
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
+      Delta: 01:00:00
+      Begins at 22:00 on Saturday of week 2 of August
+      Ends at 22:00 on Saturday of week 2 of May
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: 01:00:00
+      Begins at 22:00 on Saturday of week 2 of August
+      Ends at 22:00 on Saturday of week 2 of May
+      From 01/01/2019 00:00:00 to 31/12/9999 00:00:00
+      Delta: 01:00:00
+      Begins at 22:00 on Saturday of week 1 of September
+      Ends at 22:00 on Saturday of week 1 of April
 ID: Central Standard Time (Mexico)
    Display Name: (UTC-06:00) Guadalajara, Mexico City, Monterrey
    Standard Name:          Central Standard Time (Mexico)
@@ -252,7 +264,7 @@ ID: Haiti Standard Time
    Standard Name:                     Haiti Standard Time
    Daylight Name:                     Haiti Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                      -5 hours, 0 minutes
-   Number of adjustment rules:                          5
+   Number of adjustment rules:                          6
    Adjustment Rules:
       From 01/01/0001 00:00:00 to 31/12/2006 00:00:00
       Delta: 01:00:00
@@ -271,6 +283,10 @@ ID: Haiti Standard Time
       Begins at 02:00 on Sunday of week 2 of March
       Ends at 02:00 on Sunday of week 1 of November
       From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 2 of March
+      Ends at 02:00 on Sunday of week 1 of November
+      From 01/01/2017 00:00:00 to 31/12/9999 00:00:00
       Delta: 01:00:00
       Begins at 02:00 on Sunday of week 2 of March
       Ends at 02:00 on Sunday of week 1 of November
@@ -337,6 +353,37 @@ ID: US Eastern Standard Time
       Begins at 02:00 on Sunday of week 1 of April
       Ends at 02:00 on Sunday of week 5 of October
       From 01/01/2007 00:00:00 to 31/12/9999 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 2 of March
+      Ends at 02:00 on Sunday of week 1 of November
+ID: Turks And Caicos Standard Time
+   Display Name:             (UTC-05:00) Turks and Caicos
+   Standard Name:          Turks and Caicos Standard Time
+   Daylight Name:          Turks and Caicos Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                      -5 hours, 0 minutes
+   Number of adjustment rules:                          6
+   Adjustment Rules:
+      From 01/01/0001 00:00:00 to 31/12/2014 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 2 of March
+      Ends at 02:00 on Sunday of week 1 of November
+      From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 2 of March
+      Ends at 00:00 on Thursday of week 1 of January
+      From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 2 of March
+      Ends at 02:00 on Sunday of week 1 of November
+      From 01/01/2019 00:00:00 to 31/12/9999 00:00:00
       Delta: 01:00:00
       Begins at 02:00 on Sunday of week 2 of March
       Ends at 02:00 on Sunday of week 1 of November
@@ -530,95 +577,95 @@ ID: Central Brazilian Standard Time
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2019 00:00:00 to 31/12/2019 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2020 00:00:00 to 31/12/2020 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 5 of October
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2021 00:00:00 to 31/12/2021 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2022 00:00:00 to 31/12/2022 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2023 00:00:00 to 31/12/2023 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 2 of October
-      Ends at 23:59 on Saturday of week 4 of February
+      Begins at 23:59 on Saturday of week 1 of November
+      Ends at 23:59 on Saturday of week 5 of February
       From 01/01/2024 00:00:00 to 31/12/2024 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2025 00:00:00 to 31/12/2025 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2026 00:00:00 to 31/12/2026 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 5 of October
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2027 00:00:00 to 31/12/2027 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2028 00:00:00 to 31/12/2028 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 2 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2029 00:00:00 to 31/12/2029 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2030 00:00:00 to 31/12/2030 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2031 00:00:00 to 31/12/2031 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2032 00:00:00 to 31/12/2032 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 2 of February
       From 01/01/2033 00:00:00 to 31/12/2033 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2034 00:00:00 to 31/12/2034 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 2 of October
-      Ends at 23:59 on Saturday of week 4 of February
+      Begins at 23:59 on Saturday of week 1 of November
+      Ends at 23:59 on Saturday of week 5 of February
       From 01/01/2035 00:00:00 to 31/12/2035 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2036 00:00:00 to 31/12/2036 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2037 00:00:00 to 31/12/2037 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 5 of October
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2038 00:00:00 to 31/12/2038 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2039 00:00:00 to 31/12/2039 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2040 00:00:00 to 31/12/9999 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
 ID: SA Western Standard Time
    Display Name: (UTC-04:00) Georgetown, La Paz, Manaus, San Juan
@@ -631,7 +678,7 @@ ID: Pacific SA Standard Time
    Standard Name:                Pacific SA Standard Time
    Daylight Name:                Pacific SA Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                      -4 hours, 0 minutes
-   Number of adjustment rules:                         10
+   Number of adjustment rules:                         13
    Adjustment Rules:
       From 01/01/0001 00:00:00 to 31/12/2007 00:00:00
       Delta: 01:00:00
@@ -669,25 +716,22 @@ ID: Pacific SA Standard Time
       Delta: 00:00:00
       Begins at 00:00 on 1 January
       Ends at 00:00 on 1 January
-      From 01/01/2016 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
       Delta: 01:00:00
       Begins at 23:59 on Saturday of week 2 of August
       Ends at 23:59 on Saturday of week 2 of May
-ID: Turks And Caicos Standard Time
-   Display Name:             (UTC-04:00) Turks and Caicos
-   Standard Name:          Turks and Caicos Standard Time
-   Daylight Name:          Turks and Caicos Daylight Time   ***Has Daylight Saving Time***
-   Offset from UTC:                      -4 hours, 0 minutes
-   Number of adjustment rules:                          2
-   Adjustment Rules:
-      From 01/01/0001 00:00:00 to 31/12/2014 00:00:00
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
       Delta: 01:00:00
-      Begins at 02:00 on Sunday of week 2 of March
-      Ends at 02:00 on Sunday of week 1 of November
-      From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
+      Begins at 23:59 on Saturday of week 2 of August
+      Ends at 23:59 on Saturday of week 2 of May
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
       Delta: 01:00:00
-      Begins at 02:00 on Sunday of week 2 of March
-      Ends at 00:00 on Thursday of week 1 of January
+      Begins at 23:59 on Saturday of week 2 of August
+      Ends at 23:59 on Saturday of week 2 of May
+      From 01/01/2019 00:00:00 to 31/12/9999 00:00:00
+      Delta: 01:00:00
+      Begins at 23:59 on Saturday of week 1 of September
+      Ends at 23:59 on Saturday of week 1 of April
 ID: Newfoundland Standard Time
    Display Name:                 (UTC-03:30) Newfoundland
    Standard Name:              Newfoundland Standard Time
@@ -803,95 +847,95 @@ ID: E. South America Standard Time
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2019 00:00:00 to 31/12/2019 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2020 00:00:00 to 31/12/2020 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 5 of October
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2021 00:00:00 to 31/12/2021 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2022 00:00:00 to 31/12/2022 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2023 00:00:00 to 31/12/2023 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 2 of October
-      Ends at 23:59 on Saturday of week 4 of February
+      Begins at 23:59 on Saturday of week 1 of November
+      Ends at 23:59 on Saturday of week 5 of February
       From 01/01/2024 00:00:00 to 31/12/2024 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2025 00:00:00 to 31/12/2025 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2026 00:00:00 to 31/12/2026 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 5 of October
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2027 00:00:00 to 31/12/2027 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2028 00:00:00 to 31/12/2028 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 2 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2029 00:00:00 to 31/12/2029 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2030 00:00:00 to 31/12/2030 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2031 00:00:00 to 31/12/2031 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2032 00:00:00 to 31/12/2032 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 2 of February
       From 01/01/2033 00:00:00 to 31/12/2033 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2034 00:00:00 to 31/12/2034 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 2 of October
-      Ends at 23:59 on Saturday of week 4 of February
+      Begins at 23:59 on Saturday of week 1 of November
+      Ends at 23:59 on Saturday of week 5 of February
       From 01/01/2035 00:00:00 to 31/12/2035 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2036 00:00:00 to 31/12/2036 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2037 00:00:00 to 31/12/2037 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 5 of October
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2038 00:00:00 to 31/12/2038 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2039 00:00:00 to 31/12/2039 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
       From 01/01/2040 00:00:00 to 31/12/9999 00:00:00
       Delta: 01:00:00
-      Begins at 23:59 on Saturday of week 3 of October
+      Begins at 23:59 on Saturday of week 1 of November
       Ends at 23:59 on Saturday of week 3 of February
 ID: SA Eastern Standard Time
    Display Name:           (UTC-03:00) Cayenne, Fortaleza
@@ -1125,12 +1169,44 @@ ID: UTC
    Daylight Name:              Coordinated Universal Time   ***Does Not Have Daylight Saving Time***
    Offset from UTC:                       0 hours, 0 minutes
    Number of adjustment rules:                          0
+ID: GMT Standard Time
+   Display Name: (UTC+00:00) Dublin, Edinburgh, Lisbon, London
+   Standard Name:                       GMT Standard Time
+   Daylight Name:                       GMT Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       0 hours, 0 minutes
+   Number of adjustment rules:                          1
+   Adjustment Rules:
+      From 01/01/0001 00:00:00 to 31/12/9999 00:00:00
+      Delta: 01:00:00
+      Begins at 01:00 on Sunday of week 5 of March
+      Ends at 02:00 on Sunday of week 5 of October
+ID: Greenwich Standard Time
+   Display Name:          (UTC+00:00) Monrovia, Reykjavik
+   Standard Name:                 Greenwich Standard Time
+   Daylight Name:                 Greenwich Daylight Time   ***Does Not Have Daylight Saving Time***
+   Offset from UTC:                       0 hours, 0 minutes
+   Number of adjustment rules:                          0
+ID: Sao Tome Standard Time
+   Display Name:                     (UTC+00:00) Sao Tome
+   Standard Name:                  Sao Tome Standard Time
+   Daylight Name:                  Sao Tome Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       0 hours, 0 minutes
+   Number of adjustment rules:                          2
+   Adjustment Rules:
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: -01:00:00
+      Begins at 00:00 on Monday of week 1 of January
+      Ends at 01:00 on Monday of week 1 of January
+      From 01/01/2019 00:00:00 to 31/12/2019 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Tuesday of week 1 of January
+      Ends at 02:00 on Tuesday of week 1 of January
 ID: Morocco Standard Time
-   Display Name:                   (UTC+00:00) Casablanca
+   Display Name:                   (UTC+01:00) Casablanca
    Standard Name:                   Morocco Standard Time
    Daylight Name:                   Morocco Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                       0 hours, 0 minutes
-   Number of adjustment rules:                         10
+   Number of adjustment rules:                         13
    Adjustment Rules:
       From 01/01/2008 00:00:00 to 31/12/2008 00:00:00
       Delta: 01:00:00
@@ -1166,29 +1242,24 @@ ID: Morocco Standard Time
       Ends at 03:00 on Sunday of week 5 of October
       From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
       Delta: 01:00:00
-      Begins at 02:00 on Sunday of week 2 of July
+      Begins at 02:00 on Sunday of week 5 of March
       Ends at 03:00 on Sunday of week 5 of October
-      From 01/01/2017 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
       Delta: 01:00:00
       Begins at 02:00 on Sunday of week 5 of March
       Ends at 03:00 on Sunday of week 5 of October
-ID: GMT Standard Time
-   Display Name: (UTC+00:00) Dublin, Edinburgh, Lisbon, London
-   Standard Name:                       GMT Standard Time
-   Daylight Name:                       GMT Daylight Time   ***Has Daylight Saving Time***
-   Offset from UTC:                       0 hours, 0 minutes
-   Number of adjustment rules:                          1
-   Adjustment Rules:
-      From 01/01/0001 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
       Delta: 01:00:00
-      Begins at 01:00 on Sunday of week 5 of March
-      Ends at 02:00 on Sunday of week 5 of October
-ID: Greenwich Standard Time
-   Display Name:          (UTC+00:00) Monrovia, Reykjavik
-   Standard Name:                 Greenwich Standard Time
-   Daylight Name:                 Greenwich Daylight Time   ***Does Not Have Daylight Saving Time***
-   Offset from UTC:                       0 hours, 0 minutes
-   Number of adjustment rules:                          0
+      Begins at 02:00 on Sunday of week 3 of June
+      Ends at 03:00 on Sunday of week 2 of May
+      From 01/01/2019 00:00:00 to 31/12/2019 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 2 of June
+      Ends at 03:00 on Sunday of week 1 of May
+      From 01/01/2020 00:00:00 to 31/12/9999 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 4 of May
+      Ends at 03:00 on Sunday of week 3 of April
 ID: W. Europe Standard Time
    Display Name: (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
    Standard Name:                 W. Europe Standard Time
@@ -1239,17 +1310,6 @@ ID: W. Central Africa Standard Time
    Daylight Name:         W. Central Africa Daylight Time   ***Does Not Have Daylight Saving Time***
    Offset from UTC:                       1 hours, 0 minutes
    Number of adjustment rules:                          0
-ID: Namibia Standard Time
-   Display Name:                     (UTC+01:00) Windhoek
-   Standard Name:                   Namibia Standard Time
-   Daylight Name:                   Namibia Daylight Time   ***Has Daylight Saving Time***
-   Offset from UTC:                       1 hours, 0 minutes
-   Number of adjustment rules:                          1
-   Adjustment Rules:
-      From 01/01/0001 00:00:00 to 31/12/9999 00:00:00
-      Delta: 01:00:00
-      Begins at 02:00 on Sunday of week 1 of September
-      Ends at 02:00 on Sunday of week 1 of April
 ID: Jordan Standard Time
    Display Name:                        (UTC+02:00) Amman
    Standard Name:                    Jordan Standard Time
@@ -1469,7 +1529,7 @@ ID: West Bank Standard Time
    Standard Name:            West Bank Gaza Standard Time
    Daylight Name:            West Bank Gaza Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                       2 hours, 0 minutes
-   Number of adjustment rules:                          6
+   Number of adjustment rules:                          9
    Adjustment Rules:
       From 01/01/0001 00:00:00 to 31/12/2012 00:00:00
       Delta: 01:00:00
@@ -1491,9 +1551,21 @@ ID: West Bank Standard Time
       Delta: 01:00:00
       Begins at 01:00 on Saturday of week 5 of March
       Ends at 01:00 on Saturday of week 5 of October
-      From 01/01/2017 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
       Delta: 01:00:00
       Begins at 01:00 on Saturday of week 5 of March
+      Ends at 01:00 on Saturday of week 5 of October
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: 01:00:00
+      Begins at 01:00 on Saturday of week 4 of March
+      Ends at 01:00 on Saturday of week 5 of October
+      From 01/01/2019 00:00:00 to 31/12/2019 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Friday of week 5 of March
+      Ends at 01:00 on Saturday of week 4 of October
+      From 01/01/2020 00:00:00 to 31/12/9999 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Friday of week 4 of March
       Ends at 01:00 on Saturday of week 5 of October
 ID: South Africa Standard Time
    Display Name:             (UTC+02:00) Harare, Pretoria
@@ -1626,6 +1698,21 @@ ID: Kaliningrad Standard Time
       Delta: 01:00:00
       Begins at 00:00 on Wednesday of week 1 of January
       Ends at 02:00 on Sunday of week 5 of October
+ID: Sudan Standard Time
+   Display Name:                     (UTC+02:00) Khartoum
+   Standard Name:                     Sudan Standard Time
+   Daylight Name:                     Sudan Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       2 hours, 0 minutes
+   Number of adjustment rules:                          2
+   Adjustment Rules:
+      From 01/01/0001 00:00:00 to 31/12/2016 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Sunday of week 1 of January
+      Ends at 23:59 on Tuesday of week 5 of October
 ID: Libya Standard Time
    Display Name:                      (UTC+02:00) Tripoli
    Standard Name:                     Libya Standard Time
@@ -1641,6 +1728,17 @@ ID: Libya Standard Time
       Delta: 01:00:00
       Begins at 01:00 on Friday of week 5 of March
       Ends at 00:00 on Tuesday of week 1 of January
+ID: Namibia Standard Time
+   Display Name:                     (UTC+02:00) Windhoek
+   Standard Name:                   Namibia Standard Time
+   Daylight Name:                   Namibia Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       2 hours, 0 minutes
+   Number of adjustment rules:                          1
+   Adjustment Rules:
+      From 01/01/0001 00:00:00 to 31/12/2017 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Sunday of week 1 of January
+      Ends at 02:00 on Sunday of week 1 of April
 ID: Arabic Standard Time
    Display Name:                      (UTC+03:00) Baghdad
    Standard Name:                    Arabic Standard Time
@@ -1721,7 +1819,7 @@ ID: Belarus Standard Time
       Begins at 02:00 on Sunday of week 5 of March
       Ends at 00:00 on Saturday of week 1 of January
 ID: Russian Standard Time
-   Display Name: (UTC+03:00) Moscow, St. Petersburg, Volgograd
+   Display Name:       (UTC+03:00) Moscow, St. Petersburg
    Standard Name:               Russia TZ 2 Standard Time
    Daylight Name:               Russia TZ 2 Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                       3 hours, 0 minutes
@@ -1947,6 +2045,41 @@ ID: Georgian Standard Time
    Daylight Name:                  Georgian Daylight Time   ***Does Not Have Daylight Saving Time***
    Offset from UTC:                       4 hours, 0 minutes
    Number of adjustment rules:                          0
+ID: Volgograd Standard Time
+   Display Name:                    (UTC+04:00) Volgograd
+   Standard Name:                 Volgograd Standard Time
+   Daylight Name:                 Volgograd Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       4 hours, 0 minutes
+   Number of adjustment rules:                          7
+   Adjustment Rules:
+      From 01/01/0001 00:00:00 to 31/12/2010 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 5 of March
+      Ends at 03:00 on Sunday of week 5 of October
+      From 01/01/2011 00:00:00 to 31/12/2011 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 5 of March
+      Ends at 00:00 on Saturday of week 1 of January
+      From 01/01/2014 00:00:00 to 31/12/2014 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Wednesday of week 1 of January
+      Ends at 02:00 on Sunday of week 5 of October
+      From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: -01:00:00
+      Begins at 00:00 on Monday of week 1 of January
+      Ends at 02:00 on Sunday of week 5 of October
 ID: Caucasus Standard Time
    Display Name:                      (UTC+04:00) Yerevan
    Standard Name:                  Caucasus Standard Time
@@ -2012,6 +2145,21 @@ ID: Pakistan Standard Time
       Delta: 01:00:00
       Begins at 23:59 on Tuesday of week 2 of April
       Ends at 23:59 on Saturday of week 5 of October
+ID: Qyzylorda Standard Time
+   Display Name:                    (UTC+05:00) Qyzylorda
+   Standard Name:                 Qyzylorda Standard Time
+   Daylight Name:                 Qyzylorda Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       5 hours, 0 minutes
+   Number of adjustment rules:                          2
+   Adjustment Rules:
+      From 01/01/0001 00:00:00 to 31/12/2017 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: 01:00:00
+      Begins at 00:00 on Monday of week 1 of January
+      Ends at 00:00 on Friday of week 3 of December
 ID: India Standard Time
    Display Name: (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi
    Standard Name:                     India Standard Time
@@ -2296,21 +2444,6 @@ ID: Ulaanbaatar Standard Time
       Delta: 01:00:00
       Begins at 02:00 on Saturday of week 5 of March
       Ends at 23:59 on Friday of week 4 of September
-ID: North Korea Standard Time
-   Display Name:                    (UTC+08:30) Pyongyang
-   Standard Name:               North Korea Standard Time
-   Daylight Name:               North Korea Daylight Time   ***Has Daylight Saving Time***
-   Offset from UTC:                      8 hours, 30 minutes
-   Number of adjustment rules:                          2
-   Adjustment Rules:
-      From 01/01/0001 00:00:00 to 31/12/2014 00:00:00
-      Delta: 00:00:00
-      Begins at 00:00 on 1 January
-      Ends at 00:00 on 1 January
-      From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
-      Delta: 00:30:00
-      Begins at 00:00 on Thursday of week 1 of January
-      Ends at 23:59 on Friday of week 2 of August
 ID: Aus Central W. Standard Time
    Display Name:                        (UTC+08:45) Eucla
    Standard Name:            Aus Central W. Standard Time
@@ -2358,6 +2491,29 @@ ID: Tokyo Standard Time
    Daylight Name:                     Tokyo Daylight Time   ***Does Not Have Daylight Saving Time***
    Offset from UTC:                       9 hours, 0 minutes
    Number of adjustment rules:                          0
+ID: North Korea Standard Time
+   Display Name:                    (UTC+09:00) Pyongyang
+   Standard Name:               North Korea Standard Time
+   Daylight Name:               North Korea Daylight Time   ***Has Daylight Saving Time***
+   Offset from UTC:                       9 hours, 0 minutes
+   Number of adjustment rules:                          4
+   Adjustment Rules:
+      From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
+      Delta: 00:30:00
+      Begins at 00:00 on Thursday of week 1 of January
+      Ends at 23:59 on Friday of week 2 of August
+      From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
+      Delta: 00:00:00
+      Begins at 00:00 on 1 January
+      Ends at 00:00 on 1 January
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: -00:30:00
+      Begins at 00:00 on Monday of week 1 of January
+      Ends at 23:30 on Friday of week 1 of May
 ID: Korea Standard Time
    Display Name:                        (UTC+09:00) Seoul
    Standard Name:                     Korea Standard Time
@@ -2678,7 +2834,7 @@ ID: Fiji Standard Time
    Standard Name:                      Fiji Standard Time
    Daylight Name:                      Fiji Daylight Time   ***Has Daylight Saving Time***
    Offset from UTC:                      12 hours, 0 minutes
-   Number of adjustment rules:                          7
+   Number of adjustment rules:                         12
    Adjustment Rules:
       From 01/01/2009 00:00:00 to 31/12/2009 00:00:00
       Delta: 01:00:00
@@ -2704,7 +2860,27 @@ ID: Fiji Standard Time
       Delta: 01:00:00
       Begins at 02:00 on Sunday of week 1 of November
       Ends at 02:00 on Sunday of week 3 of January
-      From 01/01/2015 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2015 00:00:00 to 31/12/2015 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 1 of November
+      Ends at 03:00 on Sunday of week 3 of January
+      From 01/01/2016 00:00:00 to 31/12/2016 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 1 of November
+      Ends at 03:00 on Sunday of week 3 of January
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 1 of November
+      Ends at 03:00 on Sunday of week 3 of January
+      From 01/01/2018 00:00:00 to 31/12/2018 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 1 of November
+      Ends at 03:00 on Sunday of week 2 of January
+      From 01/01/2019 00:00:00 to 31/12/2019 00:00:00
+      Delta: 01:00:00
+      Begins at 02:00 on Sunday of week 1 of November
+      Ends at 03:00 on Sunday of week 2 of January
+      From 01/01/2020 00:00:00 to 31/12/9999 00:00:00
       Delta: 01:00:00
       Begins at 02:00 on Sunday of week 1 of November
       Ends at 03:00 on Sunday of week 3 of January
@@ -2755,9 +2931,9 @@ ID: Tonga Standard Time
       Delta: 01:00:00
       Begins at 02:00 on Sunday of week 1 of November
       Ends at 00:00 on Friday of week 1 of January
-      From 01/01/2017 00:00:00 to 31/12/9999 00:00:00
+      From 01/01/2017 00:00:00 to 31/12/2017 00:00:00
       Delta: 01:00:00
-      Begins at 02:00 on Sunday of week 1 of November
+      Begins at 00:00 on Sunday of week 1 of January
       Ends at 03:00 on Sunday of week 3 of January
 ID: Samoa Standard Time
    Display Name:                        (UTC+13:00) Samoa
