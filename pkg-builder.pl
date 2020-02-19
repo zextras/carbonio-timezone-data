@@ -61,7 +61,7 @@ sub git_timestamp_from_dirs($)
 my %PKG_GRAPH = (
    "zimbra-timezone-data" => {
       summary    => "Zimbra Timezone Data",
-      version    => "1.0.1",
+      version    => "3.0.0",
       revision   => 1,
       hard_deps  => [],
       soft_deps  => [],
@@ -106,7 +106,7 @@ sub make_package($)
 
    my $timestamp = git_timestamp_from_dirs( &$stage_fun($stage_base_dir) );
 
-   $pkg_info->{_version_ts} = $pkg_info->{version} . ( $timestamp ? ( "+" . $timestamp ) : "" );
+   $pkg_info->{_version_ts} = $pkg_info->{version} . ( $timestamp ? ( "." . $timestamp ) : "" );
 
    my @cmd = (
       "../zm-pkg-tool/pkg-build.pl",
