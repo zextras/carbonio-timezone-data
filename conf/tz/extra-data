@@ -144,6 +144,8 @@ PrimaryZone	Asia/Qyzylorda
 # The Autonomous Region of Bougainville plans to switch from UTC+10 to UTC+11
 # on 2014-12-28 at 02:00.  They call UTC+11 "Bougainville Standard Time";
 PrimaryZone	Pacific/Bougainville
+PrimaryZone	Africa/Juba
+PrimaryZone	America/Whitehorse
 
 
 # Raise the match score of some time zones so they win over other zones with
