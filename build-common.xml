@@ -11,8 +11,8 @@
     <!-- Add "init-ivy" depends to your "resolve" target and the following will
          automatically download and install ivy if necessary. -->
     <property name="ivy.jar.dir" location="${dev.home}/.ant/lib" />
-    <property name="ivy.install.version" value="2.3.0" />
-    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-2.3.0.jar" />
+    <property name="ivy.install.version" value="2.5.0" />
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy-2.5.0.jar" />
     <property name="ivy.status" value="integration" />
     <property name="ivy.organisation" value="zimbra" />
     <property name="ivy.publish.src.artifacts.pattern" value="build/[artifact]-[revision].[ext]" />

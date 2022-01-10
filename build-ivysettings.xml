@@ -15,6 +15,9 @@
       <url name="maven-https-orgPath">
         <artifact pattern="https://repo1.maven.org/maven2/[orgPath]/[module]/[revision]/[artifact]-[revision].[ext]" />
       </url>
+      <url name="bedatadriven-https-orgPath">
+        <artifact pattern="https://nexus.bedatadriven.com/content/groups/public/[orgPath]/[module]/[revision]/[artifact]-[revision].[ext]" />
+      </url>
       <ibiblio name="maven" m2compatible="true" usepoms="false"/>
       <ibiblio name="maven-redhat" root="https://maven.repository.redhat.com/ga/" pattern="[organisation]/[module]/[revision]/[module]-[revision].[ext]"/>
       <url name="zimbra">

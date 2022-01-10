@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: 2022 Zextras <https://www.zextras.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
 # Example:
 #
 # 1. untar tzdata20xxx.tar.gz to tzdata subdir.
 # 2. Run: ./zmtzdata2ical -o timezones.ics --old-timezones-file ../timezones.ics -e extra-data -t tzdata windows-names
-# 3. Install generated timezones.ics under /opt/zimbra/conf.
+# 3. Install generated timezones.ics under /opt/zextras/conf.
 # 4. Restart mailboxd.
 
 exec zmjava com.zimbra.common.calendar.ZoneInfo2iCalendar "$@"

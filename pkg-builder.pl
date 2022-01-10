@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 
+# SPDX-FileCopyrightText: 2022 Zextras <https://www.zextras.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
 use strict;
 use warnings;
 
@@ -59,32 +63,32 @@ sub git_timestamp_from_dirs($)
 
 
 my %PKG_GRAPH = (
-   "zimbra-timezone-data" => {
-      summary    => "Zimbra Timezone Data",
+   "timezone-data" => {
+      summary    => "Zextras Timezone Data",
       version    => "3.0.0",
       revision   => 1,
       hard_deps  => [],
       soft_deps  => [],
-      other_deps => ["zimbra-core-components"],
-      replaces   => [ "zimbra-store", "zimbra-core" ],
-      file_list  => ['/opt/zimbra/*'],
-      stage_fun  => sub { &stage_zimbra_timezone_data(@_); },
+      other_deps => ["core-components"],
+      replaces   => [ "store", "core" ],
+      file_list  => ['/opt/zextras/*'],
+      stage_fun  => sub { &stage_timezone_data(@_); },
    },
 );
 
 
-sub stage_zimbra_timezone_data()
+sub stage_timezone_data()
 {
    my $stage_base_dir = shift;
 
    foreach my $webapp_name ( "zimbra", "zimbraAdmin" )
    {
-      cpy_file( "build/js/AjxTimezoneData.js",           "$stage_base_dir/opt/zimbra/jetty_base/webapps/$webapp_name/js/ajax/util/AjxTimezoneData.js" );
-      cpy_file( "build/messages/$_",    "$stage_base_dir/opt/zimbra/jetty_base/webapps/$webapp_name/WEB-INF/classes/messages/$_" )
+      cpy_file( "build/js/AjxTimezoneData.js",           "$stage_base_dir/opt/zextras/jetty_base/webapps/$webapp_name/js/ajax/util/AjxTimezoneData.js" );
+      cpy_file( "build/messages/$_",    "$stage_base_dir/opt/zextras/jetty_base/webapps/$webapp_name/WEB-INF/classes/messages/$_" )
          foreach( map { basename($_); } glob("build/messages/TzMsg*.properties") );
    }
 
-   cpy_file( "build/conf/timezones.ics", "$stage_base_dir/opt/zimbra/conf/timezones.ics" );
+   cpy_file( "build/conf/timezones.ics", "$stage_base_dir/opt/zextras/conf/timezones.ics" );
 
    return ["."];
 }
@@ -179,19 +183,6 @@ sub main
    foreach my $pkg_name ( sort keys %PKG_GRAPH )
    {
       depth_first_traverse_package($pkg_name);
-   }
-
-   if ( -f "/etc/redhat-release" )
-   {
-      system( "which createrepo 1>/dev/null 2>/dev/null" );
-      system("cd build/dist/[ucr]* && createrepo '.'")
-         if( $? == 0 );
-   }
-   else
-   {
-      system( "which dpkg-scanpackages 1>/dev/null 2>/dev/null" );
-      system( "cd build/dist/[ucr]* && dpkg-scanpackages '.' /dev/null > Packages" )
-         if( $? == 0 );
    }
 }
 
