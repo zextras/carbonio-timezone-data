@@ -6,3 +6,5 @@ build/
 .project
 /bin/
 .settings/
+.idea/
+*.iml
