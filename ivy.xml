@@ -15,5 +15,6 @@ SPDX-License-Identifier: AGPL-3.0-only
  </publications>
  <dependencies>
   <dependency org="ant" name="ant" rev="1.6.5"/>
+  <dependency org="ant-contrib" name="ant-contrib" rev="1.0b3" />
  </dependencies>
 </ivy-module>

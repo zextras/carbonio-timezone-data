@@ -39,10 +39,4 @@
     <mkdir dir="${build.conf.dir}"/>
     <copy file="${tz.data}" todir="${build.conf.dir}"/>
   </target>
-
-  <target name="pkg" depends="timezones">
-    <delete dir="build/dist"/>
-    <delete dir="build/stage"/>
-    <exec dir="." executable="./pkg-builder.pl" failonerror="true"/>
-  </target>
 </project>

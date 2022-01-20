@@ -1,0 +1,38 @@
+targets=(
+  "centos"
+  "ubuntu"
+)
+pkgname="carbonio-timezone-data"
+pkgver="4.0.0"
+pkgrel="1"
+arch="amd64"
+pkgdesc="Carbonio Timezone Data"
+pkgdesclong=(
+  "Carbonio Timezone Data"
+)
+maintainer="Zextras <packages@zextras.com>"
+url="https://zextras.com"
+depends=(
+  "carbonio-core"
+)
+section="mail"
+priority="optional"
+
+package() {
+  cd "${srcdir}"/../../staging
+  
+  install -Ddm755 "${pkgdir}/opt/zextras/jetty_base/webapps/zimbra/WEB-INF/classes/messages"
+  install -Ddm755 "${pkgdir}/opt/zextras/jetty_base/webapps/zimbraAdmin/WEB-INF/classes/messages"
+
+  cp build/messages/TzMsg*.properties \
+    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbra/WEB-INF/classes/messages"
+  cp build/messages/TzMsg*.properties \
+    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbraAdmin/WEB-INF/classes/messages"
+
+  install -D build/conf/timezones.ics \
+    "${pkgdir}/opt/zextras/conf/timezones.ics"
+  install -D build/js/AjxTimezoneData.js \
+    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbra/js/ajax/util/AjxTimezoneData.js"    
+  install -D build/js/AjxTimezoneData.js \
+    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbraAdmin/js/ajax/util/AjxTimezoneData.js"
+}
