@@ -12,9 +12,6 @@ pkgdesclong=(
 )
 maintainer="Zextras <packages@zextras.com>"
 url="https://zextras.com"
-depends=(
-  "carbonio-core"
-)
 section="mail"
 priority="optional"
 
