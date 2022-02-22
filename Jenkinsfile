@@ -71,17 +71,17 @@ pipeline {
                                 }
                             }
                         }
-                        stage('Centos 8') {
+                        stage('Rocky 8') {
                             agent {
                                 node {
-                                    label 'pacur-agent-centos-8-v1'
+                                    label 'pacur-agent-rocky-8-v1'
                                 }
                             }
                             steps {
                                 unstash 'staging'
                                 sh 'cp -r staging /tmp'                                
-                                sh 'sudo pacur build centos /tmp/staging/package'
-                                stash includes: 'artifacts/', name: 'artifacts-centos-8'
+                                sh 'sudo pacur build rocky-8 /tmp/staging/package'
+                                stash includes: 'artifacts/', name: 'artifacts-rocky-8'
                             }
                             post {
                                 always {
@@ -96,14 +96,13 @@ pipeline {
         stage('Upload To Playground') {
             when {
                 anyOf {
-                    branch 'playground/*'
                     expression { params.PLAYGROUND == true }
                 }
             }
             steps {
                 unstash 'artifacts-ubuntu-bionic'
                 unstash 'artifacts-ubuntu-focal'
-                unstash 'artifacts-centos-8'
+                unstash 'artifacts-rocky-8'
                 script {
                     def server = Artifactory.server 'zextras-artifactory'
                     def buildInfo
@@ -122,7 +121,7 @@ pipeline {
                                 "props": "deb.distribution=focal;deb.component=main;deb.architecture=amd64"
                             },
                             {
-                                "pattern": "artifacts/(carbonio-timezones)-(*).rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).rpm",
                                 "target": "centos8-playground/zextras/{1}/{1}-{2}.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
                             }
@@ -142,7 +141,7 @@ pipeline {
             steps {
                 unstash 'artifacts-ubuntu-bionic'
                 unstash 'artifacts-ubuntu-focal'
-                unstash 'artifacts-centos-8'
+                unstash 'artifacts-rocky-8'
                 script {
                     def server = Artifactory.server 'zextras-artifactory'
                     def buildInfo
@@ -182,13 +181,13 @@ pipeline {
                     server.publishBuildInfo buildInfo
 
 
-                    //centos8
+                    //rocky8
                     buildInfo = Artifactory.newBuildInfo()
                     buildInfo.name += "-centos8"
                     uploadSpec= """{
                         "files": [
                             {
-                                "pattern": "artifacts/(carbonio-timezones)-(*).rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).rpm",
                                 "target": "centos8-rc/zextras/{1}/{1}-{2}.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
                             }
