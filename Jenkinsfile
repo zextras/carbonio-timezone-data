@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/ ant'
+                sh 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ ant'
                 sh 'mkdir staging'
                 sh 'cp -r build package staging'
                 stash includes: 'staging/**', name: 'staging'
@@ -35,24 +35,6 @@ pipeline {
             stages {
                 stage('pacur') {
                     parallel {
-                        stage('Ubuntu 18.04') {
-                            agent {
-                                node {
-                                    label 'pacur-agent-ubuntu-18.04-v1'
-                                }
-                            }
-                            steps {
-                                unstash 'staging'
-                                sh 'cp -r staging /tmp'
-                                sh 'sudo pacur build ubuntu-bionic /tmp/staging/package'
-                                stash includes: 'artifacts/', name: 'artifacts-ubuntu-bionic'
-                            }
-                            post {
-                                always {
-                                    archiveArtifacts artifacts: 'artifacts/*.deb', fingerprint: true
-                                }
-                            }
-                        }
                         stage('Ubuntu 20.04') {
                             agent {
                                 node {
