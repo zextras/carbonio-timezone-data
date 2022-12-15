@@ -82,7 +82,6 @@ pipeline {
                 }
             }
             steps {
-                unstash 'artifacts-ubuntu-bionic'
                 unstash 'artifacts-ubuntu-focal'
                 unstash 'artifacts-rocky-8'
                 script {
@@ -121,7 +120,6 @@ pipeline {
                 }
             }
             steps {
-                unstash 'artifacts-ubuntu-bionic'
                 unstash 'artifacts-ubuntu-focal'
                 unstash 'artifacts-rocky-8'
                 script {
