@@ -1,1 +1,1 @@
-ftp://ftp.iana.org/tz/releases/tzdata2021a.tar.gz
+ftp://ftp.iana.org/tz/releases/tzdata2022c.tar.gz
