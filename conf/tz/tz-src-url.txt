@@ -1,1 +1,1 @@
-ftp://ftp.iana.org/tz/releases/tzdata2022c.tar.gz
+https://data.iana.org/time-zones/releases/tzdata2023c.tar.gz
