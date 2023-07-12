@@ -9,7 +9,6 @@
   <property name="tz.data" value="conf/timezones.ics"/>
   <property name="tz.dir" value="${build.dir}/js"/>
   <property name="tz.file" value="${tz.dir}/AjxTimezoneData.js"/>
-  <property name="message.dir" value="${build.dir}/messages"/>
 
   <target name="zip" depends="timezones" description="Creates the zip file">
     <zip destfile="${build.dir}/${ant.project.name}-${git.timestamp}.zip" update="true" basedir="${build.dir}" excludes="${ant.project.name}-${git.timestamp}.zip" />
@@ -26,11 +25,6 @@
 
     <mkdir dir="${tz.dir}"/>
     <timezones src="${tz.data}" dest="${tz.file}"/>
-
-    <mkdir dir="${message.dir}"/>
-    <copy todir="${message.dir}">
-      <fileset dir="messages" includes="*.properties" />
-    </copy>
 
     <mkdir dir="${build.bin.dir}"/>
     <copy file="${src.bin.dir}/${deploy.file.name}" tofile="${build.bin.dir}/${deploy.file.name}"/>
