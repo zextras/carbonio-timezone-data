@@ -17,19 +17,7 @@ priority="optional"
 
 package() {
   cd "${srcdir}"/../../staging
-  
-  install -Ddm755 "${pkgdir}/opt/zextras/jetty_base/webapps/zimbra/WEB-INF/classes/messages"
-  install -Ddm755 "${pkgdir}/opt/zextras/jetty_base/webapps/zimbraAdmin/WEB-INF/classes/messages"
-
-  cp build/messages/TzMsg*.properties \
-    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbra/WEB-INF/classes/messages"
-  cp build/messages/TzMsg*.properties \
-    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbraAdmin/WEB-INF/classes/messages"
 
   install -D build/conf/timezones.ics \
     "${pkgdir}/opt/zextras/conf/timezones.ics"
-  install -D build/js/AjxTimezoneData.js \
-    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbra/js/ajax/util/AjxTimezoneData.js"    
-  install -D build/js/AjxTimezoneData.js \
-    "${pkgdir}/opt/zextras/jetty_base/webapps/zimbraAdmin/js/ajax/util/AjxTimezoneData.js"
 }
