@@ -6,6 +6,9 @@ pipeline {
     }
     parameters {
         booleanParam defaultValue: false, description: 'Whether to upload the packages in playground repositories', name: 'PLAYGROUND'
+        booleanParam defaultValue: false,
+                description: 'Whether to upload the packages in rc-jdk17 repositories',
+                name: 'RC_JDK17'
     }
     environment {
         JAVA_OPTS="-Dfile.encoding=UTF8"
@@ -72,6 +75,43 @@ pipeline {
                             }
                         }
                     }
+                }
+            }
+        }
+        stage('Upload To RC-JDK17') {
+            when {
+                anyOf {
+                    expression { params.RC_JDK17 == true }
+                }
+            }
+            steps {
+                unstash 'artifacts-ubuntu-focal'
+                unstash 'artifacts-rocky-8'
+                script {
+                    def server = Artifactory.server 'zextras-artifactory'
+                    def buildInfo
+                    def uploadSpec
+                    buildInfo = Artifactory.newBuildInfo()
+                    uploadSpec = '''{
+                        "files": [
+                            {
+                                "pattern": "artifacts/*bionic*.deb",
+                                "target": "ubuntu-rc-jdk17/pool/",
+                                "props": "deb.distribution=bionic;deb.component=main;deb.architecture=amd64"
+                            },
+                            {
+                                "pattern": "artifacts/*focal*.deb",
+                                "target": "ubuntu-rc-jdk17/pool/",
+                                "props": "deb.distribution=focal;deb.component=main;deb.architecture=amd64"
+                            },
+                            {
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).rpm",
+                                "target": "centos8-rc-jdk17/zextras/{1}/{1}-{2}.rpm",
+                                "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
+                            }
+                        ]
+                    }'''
+                    server.upload spec: uploadSpec, buildInfo: buildInfo, failNoOp: false
                 }
             }
         }
