@@ -26,26 +26,24 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ ant'
-                sh 'mkdir staging'
-                sh 'cp -r build package staging'
-                stash includes: 'staging/**', name: 'staging'
+                sh 'cp -r build/conf/timezones.ics package/timezone-data'
+                stash includes: 'package/**', name: 'staging'
             }
         }
         stage('Build deb/rpm') {
             stages {
-                stage('pacur') {
+                stage('yap') {
                     parallel {
-                        stage('Ubuntu 20.04') {
+                        stage('Ubuntu') {
                             agent {
                                 node {
-                                    label 'pacur-agent-ubuntu-20.04-v1'
+                                    label 'yap-agent-ubuntu-20.04-v2'
                                 }
                             }
                             steps {
                                 unstash 'staging'
-                                sh 'cp -r staging /tmp'
-                                sh 'sudo pacur build ubuntu-focal /tmp/staging/package'
-                                stash includes: 'artifacts/', name: 'artifacts-ubuntu-focal'
+                                sh 'sudo yap build ubuntu package'
+                                stash includes: 'artifacts/', name: 'artifacts-deb'
                             }
                             post {
                                 always {
@@ -53,21 +51,20 @@ pipeline {
                                 }
                             }
                         }
-                        stage('Rocky 8') {
+                        stage('RHEL') {
                             agent {
                                 node {
-                                    label 'pacur-agent-rocky-8-v1'
+                                    label 'yap-agent-rocky-8-v2'
                                 }
                             }
                             steps {
                                 unstash 'staging'
-                                sh 'cp -r staging /tmp'                                
-                                sh 'sudo pacur build rocky-8 /tmp/staging/package'
-                                stash includes: 'artifacts/', name: 'artifacts-rocky-8'
+                                sh 'sudo yap build rocky package'
+                                stash includes: 'artifacts/x86_64/*.rpm', name: 'artifacts-rpm'
                             }
                             post {
                                 always {
-                                    archiveArtifacts artifacts: 'artifacts/*.rpm', fingerprint: true
+                                    archiveArtifacts artifacts: 'artifacts/x86_64/*.rpm', fingerprint: true
                                 }
                             }
                         }
@@ -82,8 +79,8 @@ pipeline {
                 }
             }
             steps {
-                unstash 'artifacts-ubuntu-focal'
-                unstash 'artifacts-rocky-8'
+                unstash 'artifacts-deb'
+                unstash 'artifacts-rpm'
                 script {
                     def server = Artifactory.server 'zextras-artifactory'
                     def buildInfo
@@ -92,18 +89,18 @@ pipeline {
                     uploadSpec = '''{
                         "files": [
                             {
-                                "pattern": "artifacts/*bionic*.deb",
+                                "pattern": "artifacts/*.deb",
                                 "target": "ubuntu-playground/pool/",
-                                "props": "deb.distribution=bionic;deb.component=main;deb.architecture=amd64"
-                            },
-                            {
-                                "pattern": "artifacts/*focal*.deb",
-                                "target": "ubuntu-playground/pool/",
-                                "props": "deb.distribution=focal;deb.component=main;deb.architecture=amd64"
+                                "props": "deb.distribution=focal;deb.distribution=jammy;deb.component=main;deb.architecture=amd64"
                             },
                             {
                                 "pattern": "artifacts/(carbonio-timezone-data)-(*).rpm",
                                 "target": "centos8-playground/zextras/{1}/{1}-{2}.rpm",
+                                "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
+                            },
+                            {
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).rpm",
+                                "target": "rhel9-playground/zextras/{1}/{1}-{2}.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
                             }
                         ]
@@ -120,8 +117,8 @@ pipeline {
                 }
             }
             steps {
-                unstash 'artifacts-ubuntu-focal'
-                unstash 'artifacts-rocky-8'
+                unstash 'artifacts-deb'
+                unstash 'artifacts-rpm'
                 script {
                     def server = Artifactory.server 'zextras-artifactory'
                     def buildInfo
@@ -134,14 +131,9 @@ pipeline {
                     uploadSpec = """{
                         "files": [
                             {
-                                "pattern": "artifacts/*bionic*.deb",
+                                "pattern": "artifacts/*.deb",
                                 "target": "ubuntu-rc/pool/",
-                                "props": "deb.distribution=bionic;deb.component=main;deb.architecture=amd64"
-                            },
-                            {
-                                "pattern": "artifacts/*focal*.deb",
-                                "target": "ubuntu-rc/pool/",
-                                "props": "deb.distribution=focal;deb.component=main;deb.architecture=amd64"
+                                "props": "deb.distribution=focal;deb.distribution=jammy;deb.component=main;deb.architecture=amd64"
                             }
                         ]
                     }"""
@@ -161,7 +153,7 @@ pipeline {
                     server.publishBuildInfo buildInfo
 
 
-                    //rocky8
+                    //rhel8
                     buildInfo = Artifactory.newBuildInfo()
                     buildInfo.name += "-centos8"
                     uploadSpec= """{
@@ -179,6 +171,33 @@ pipeline {
                             'buildNumber'        : buildInfo.number,
                             'sourceRepo'         : 'centos8-rc',
                             'targetRepo'         : 'centos8-release',
+                            'comment'            : 'Do not change anything! Just press the button',
+                            'status'             : 'Released',
+                            'includeDependencies': false,
+                            'copy'               : true,
+                            'failFast'           : true
+                    ]
+                    Artifactory.addInteractivePromotion server: server, promotionConfig: config, displayName: "Centos8 Promotion to Release"
+                    server.publishBuildInfo buildInfo
+
+                    //rhel9
+                    buildInfo = Artifactory.newBuildInfo()
+                    buildInfo.name += "-rhel9"
+                    uploadSpec= """{
+                        "files": [
+                            {
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).rpm",
+                                "target": "rhel9-rc/zextras/{1}/{1}-{2}.rpm",
+                                "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
+                            }
+                        ]
+                    }"""
+                    server.upload spec: uploadSpec, buildInfo: buildInfo, failNoOp: false
+                    config = [
+                            'buildName'          : buildInfo.name,
+                            'buildNumber'        : buildInfo.number,
+                            'sourceRepo'         : 'rhel9-rc',
+                            'targetRepo'         : 'rhel9-release',
                             'comment'            : 'Do not change anything! Just press the button',
                             'status'             : 'Released',
                             'includeDependencies': false,
