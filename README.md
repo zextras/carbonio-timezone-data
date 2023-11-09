@@ -12,4 +12,4 @@ to build and reinstall the webapps that use this information.
 
 ## License
 
-See [COPYING](COPYING) file for details
+See [COPYING](COPYING-AGPL-3.0-only) file for details
