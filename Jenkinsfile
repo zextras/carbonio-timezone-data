@@ -109,6 +109,41 @@ pipeline {
                 }
             }
         }
+        stage('Upload To Devel') {
+            when {
+                branch 'devel'
+            }
+            steps {
+                unstash 'artifacts-deb'
+                unstash 'artifacts-rpm'
+                script {
+                    def server = Artifactory.server 'zextras-artifactory'
+                    def buildInfo
+                    def uploadSpec
+                    buildInfo = Artifactory.newBuildInfo()
+                    uploadSpec = '''{
+                        "files": [
+                            {
+                                "pattern": "artifacts/*.deb",
+                                "target": "ubuntu-devel/pool/",
+                                "props": "deb.distribution=focal;deb.distribution=jammy;deb.component=main;deb.architecture=amd64"
+                            },
+                            {
+                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).rpm",
+                                "target": "centos8-devel/zextras/{1}/{1}-{2}.rpm",
+                                "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
+                            },
+                            {
+                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).rpm",
+                                "target": "rhel9-devel/zextras/{1}/{1}-{2}.rpm",
+                                "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras"
+                            }
+                        ]
+                    }'''
+                    server.upload spec: uploadSpec, buildInfo: buildInfo, failNoOp: false
+                }
+            }
+        }
         stage('Upload & Promotion Config') {
             when {
                 anyOf {
