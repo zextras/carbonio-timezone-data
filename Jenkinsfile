@@ -42,7 +42,14 @@ pipeline {
                             }
                             steps {
                                 unstash 'staging'
-                                sh 'sudo yap build ubuntu package'
+                                script {
+                                    if (BRANCH_NAME == 'devel') {
+                                        def timestamp = new Date().format('yyyyMMddHHmmss')
+                                        sh "yap build ubuntu package -r ${timestamp} -s"
+                                    } else {
+                                        sh 'yap build ubuntu package -s'
+                                    }
+                                }
                                 stash includes: 'artifacts/', name: 'artifacts-deb'
                             }
                             post {
@@ -59,7 +66,14 @@ pipeline {
                             }
                             steps {
                                 unstash 'staging'
-                                sh 'sudo yap build rocky package'
+                                script {
+                                    if (BRANCH_NAME == 'devel') {
+                                        def timestamp = new Date().format('yyyyMMddHHmmss')
+                                        sh "yap build rocky package -r ${timestamp} -s"
+                                    } else {
+                                        sh 'yap build rocky package -s'
+                                    }
+                                }
                                 stash includes: 'artifacts/x86_64/*.rpm', name: 'artifacts-rpm'
                             }
                             post {
