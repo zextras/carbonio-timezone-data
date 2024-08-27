@@ -1,5 +1,5 @@
 pkgname="carbonio-timezone-data"
-pkgver="4.0.8"
+pkgver="4.0.9"
 pkgrel="1"
 arch=('x86_64')
 pkgdesc="Carbonio Timezone Data"
