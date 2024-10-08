@@ -7,11 +7,6 @@ pipeline {
     parameters {
         booleanParam defaultValue: false, description: 'Whether to upload the packages in playground repositories', name: 'PLAYGROUND'
     }
-    environment {
-        JAVA_OPTS="-Dfile.encoding=UTF8"
-        LC_ALL="C.UTF-8"
-        jenkins_build="true"
-    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '25'))
         timeout(time: 2, unit: 'HOURS')
@@ -24,13 +19,7 @@ pipeline {
                 script {
                     env.GIT_COMMIT = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
                 }
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ ant'
-                sh 'cp -r build/conf/timezones.ics package/timezone-data'
-                stash includes: 'package/**', name: 'staging'
+                stash includes: '**', name: 'project'
             }
         }
         stage('Build deb/rpm') {
@@ -44,13 +33,13 @@ pipeline {
                                 }
                             }
                             steps {
-                                unstash 'staging'
+                                unstash 'project'
                                 script {
                                     if (BRANCH_NAME == 'devel') {
                                         def timestamp = new Date().format('yyyyMMddHHmmss')
-                                        sh "yap build ubuntu package -r ${timestamp} -s"
+                                        sh "sudo yap build ubuntu package -r ${timestamp}"
                                     } else {
-                                        sh 'yap build ubuntu package -s'
+                                        sh 'sudo yap build ubuntu package'
                                     }
                                 }
                                 stash includes: 'artifacts/', name: 'artifacts-deb'
@@ -68,13 +57,13 @@ pipeline {
                                 }
                             }
                             steps {
-                                unstash 'staging'
+                                unstash 'project'
                                 script {
                                     if (BRANCH_NAME == 'devel') {
                                         def timestamp = new Date().format('yyyyMMddHHmmss')
-                                        sh "yap build rocky package -r ${timestamp} -s"
+                                        sh "sudo yap build rocky package -r ${timestamp}"
                                     } else {
-                                        sh 'yap build rocky package -s'
+                                        sh 'sudo yap build rocky package'
                                     }
                                 }
                                 stash includes: 'artifacts/x86_64/*.rpm', name: 'artifacts-rpm'

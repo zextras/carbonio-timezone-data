@@ -15,9 +15,20 @@ url="https://github.com/zextras"
 section="mail"
 priority="optional"
 source=('timezones.ics')
+makedepends__apt=('ant' 'git' 'openjdk-17-jdk-headless')
+makedepends__yum=('ant' 'git' 'java-17-openjdk-headless')
+source=("${pkgname}::git+${url}/carbonio-timezone-data#branch=devel")
+
+build() {
+  cd "${srcdir}/${pkgname}"
+  export JAVA_OPTS="-Dfile.encoding=UTF8"
+  export LC_ALL="C.UTF-8"
+  ant
+}
 
 package() {
-  install -D "${srcdir}/timezones.ics" \
+  cd "${srcdir}/${pkgname}"
+  install -D "build/conf/timezones.ics" \
     "${pkgdir}/opt/zextras/conf/timezones.ics"
 }
 
