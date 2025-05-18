@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'carbonio-agent-v1'
+            label 'infra-v1'
         }
     }
     parameters {
@@ -29,20 +29,22 @@ pipeline {
                         stage('Ubuntu') {
                             agent {
                                 node {
-                                    label 'yap-agent-ubuntu-20.04-v2'
+                                    label 'yap-ubuntu-20-v1'
                                 }
                             }
                             steps {
-                                unstash 'project'
-                                script {
-                                    if (BRANCH_NAME == 'devel') {
-                                        def timestamp = new Date().format('yyyyMMddHHmmss')
-                                        sh "sudo yap build ubuntu package -r ${timestamp}"
-                                    } else {
-                                        sh 'sudo yap build ubuntu package'
+                                container('yap') {
+                                    unstash 'project'
+                                    script {
+                                        if (BRANCH_NAME == 'devel') {
+                                            def timestamp = new Date().format('yyyyMMddHHmmss')
+                                            sh "sudo yap build ubuntu package -r ${timestamp}"
+                                        } else {
+                                            sh 'sudo yap build ubuntu package'
+                                        }
                                     }
+                                    stash includes: 'artifacts/', name: 'artifacts-deb'
                                 }
-                                stash includes: 'artifacts/', name: 'artifacts-deb'
                             }
                             post {
                                 always {
@@ -53,24 +55,26 @@ pipeline {
                         stage('RHEL') {
                             agent {
                                 node {
-                                    label 'yap-agent-rocky-8-v2'
+                                    label 'yap-rocky-8-v1'
                                 }
                             }
                             steps {
-                                unstash 'project'
-                                script {
-                                    if (BRANCH_NAME == 'devel') {
-                                        def timestamp = new Date().format('yyyyMMddHHmmss')
-                                        sh "sudo yap build rocky package -r ${timestamp}"
-                                    } else {
-                                        sh 'sudo yap build rocky package'
+                                container('yap') {
+                                    unstash 'project'
+                                    script {
+                                        if (BRANCH_NAME == 'devel') {
+                                            def timestamp = new Date().format('yyyyMMddHHmmss')
+                                            sh "sudo yap build rocky package -r ${timestamp}"
+                                        } else {
+                                            sh 'sudo yap build rocky package'
+                                        }
                                     }
+                                    stash includes: 'artifacts/*.rpm', name: 'artifacts-rpm'
                                 }
-                                stash includes: 'artifacts/x86_64/*.rpm', name: 'artifacts-rpm'
                             }
                             post {
                                 always {
-                                    archiveArtifacts artifacts: 'artifacts/x86_64/*.rpm', fingerprint: true
+                                    archiveArtifacts artifacts: 'artifacts/*.rpm', fingerprint: true
                                 }
                             }
                         }
@@ -100,12 +104,12 @@ pipeline {
                                 "props": "deb.distribution=focal;deb.distribution=jammy;deb.distribution=noble;deb.component=main;deb.architecture=amd64;vcs.revision=${env.GIT_COMMIT}"
                             },
                             {
-                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).x86_64.rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).x86_64.rpm",
                                 "target": "centos8-playground/zextras/{1}/{1}-{2}.x86_64.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras;vcs.revision=${env.GIT_COMMIT}"
                             },
                             {
-                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).x86_64.rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).x86_64.rpm",
                                 "target": "rhel9-playground/zextras/{1}/{1}-{2}.x86_64.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras;vcs.revision=${env.GIT_COMMIT}"
                             }
@@ -135,12 +139,12 @@ pipeline {
                                 "props": "deb.distribution=focal;deb.distribution=jammy;deb.distribution=noble;deb.component=main;deb.architecture=amd64;vcs.revision=${env.GIT_COMMIT}"
                             },
                             {
-                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).x86_64.rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).x86_64.rpm",
                                 "target": "centos8-devel/zextras/{1}/{1}-{2}.x86_64.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras;vcs.revision=${env.GIT_COMMIT}"
                             },
                             {
-                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).x86_64.rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).x86_64.rpm",
                                 "target": "rhel9-devel/zextras/{1}/{1}-{2}.x86_64.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras;vcs.revision=${env.GIT_COMMIT}"
                             }
@@ -200,7 +204,7 @@ pipeline {
                     uploadSpec= """{
                         "files": [
                             {
-                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).x86_64.rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).x86_64.rpm",
                                 "target": "centos8-rc/zextras/{1}/{1}-{2}.x86_64.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras;vcs.revision=${env.GIT_COMMIT}"
                             }
@@ -227,7 +231,7 @@ pipeline {
                     uploadSpec= """{
                         "files": [
                             {
-                                "pattern": "artifacts/x86_64/(carbonio-timezone-data)-(*).x86_64.rpm",
+                                "pattern": "artifacts/(carbonio-timezone-data)-(*).x86_64.rpm",
                                 "target": "rhel9-rc/zextras/{1}/{1}-{2}.x86_64.rpm",
                                 "props": "rpm.metadata.arch=x86_64;rpm.metadata.vendor=zextras;vcs.revision=${env.GIT_COMMIT}"
                             }
