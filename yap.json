@@ -1,11 +1,11 @@
 {
     "name": "An open-source, community-driven email server",
-    "Description": "Timezone Data",
+    "description": "Timezone Data",
     "buildDir": "/tmp/",
     "output": "artifacts",
-    "Projects": [
+    "projects": [
         {
-            "name": "timezone-data"
+            "name": "package/timezone-data"
         }
     ]
 }
