@@ -26,9 +26,7 @@ pipeline {
         stage('Setup') {
             steps {
                 checkout scm
-                script {
-                    gitMetadata()
-                }
+                gitMetadata()
             }
         }
 
