@@ -42,6 +42,14 @@ pipeline {
             }
         }
 
+        stage('Bump version') {
+            steps {
+                script {
+                    dt2_semanticRelease()
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building deb/rpm packages'
