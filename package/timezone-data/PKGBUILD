@@ -1,7 +1,7 @@
 pkgname="carbonio-timezone-data"
 pkgver="4.0.9"
 pkgrel="1"
-arch=('x86_64')
+arch=('any')
 pkgdesc="Carbonio Timezone Data"
 maintainer="Zextras <packages@zextras.com>"
 copyright=(
