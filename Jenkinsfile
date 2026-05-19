@@ -26,9 +26,7 @@ pipeline {
         stage('Setup') {
             steps {
                 checkout scm
-                script {
-                    gitMetadata()
-                }
+                gitMetadata()
             }
         }
 
@@ -40,6 +38,14 @@ pipeline {
                 withSonarQubeEnv(credentialsId: 'sonarqube-user-token',
                     installationName: 'SonarQube instance') {
                     sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
+
+        stage('Bump version') {
+            steps {
+                script {
+                    dt2_semanticRelease()
                 }
             }
         }
