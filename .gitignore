@@ -8,3 +8,5 @@ build/
 .settings/
 .idea/
 *.iml
+.metals
+.vscode
