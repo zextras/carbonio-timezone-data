@@ -14,8 +14,11 @@ license=(
 url="https://github.com/zextras"
 section="mail"
 priority="optional"
+source=('timezones.ics')
 
 package() {
-  install -D "${repodir}/conf/timezones.ics" \
+  install -D "${srcdir}/timezones.ics" \
     "${pkgdir}/opt/zextras/conf/timezones.ics"
 }
+
+sha256sums=('SKIP')
