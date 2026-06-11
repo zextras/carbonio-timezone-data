@@ -1,5 +1,5 @@
 library(
-    identifier: 'jenkins-lib-common@1.7.5',
+    identifier: 'jenkins-lib-common@v2.11.2',
     retriever: modernSCM([
         $class: 'GitSCMSource',
         credentialsId: 'jenkins-integration-with-github-account',
@@ -30,6 +30,16 @@ pipeline {
             }
         }
 
+        stage('Skip CI') {
+            steps {
+                script { semanticRelease.guard() }
+            }
+        }
+
+        stage('Security Scan') {
+            steps { gitleaksStage() }
+        }
+
         stage('SonarQube analysis') {
             steps {
                 script {
@@ -38,14 +48,6 @@ pipeline {
                 withSonarQubeEnv(credentialsId: 'sonarqube-user-token',
                     installationName: 'SonarQube instance') {
                     sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-        }
-
-        stage('Bump version') {
-            steps {
-                script {
-                    dt2_semanticRelease()
                 }
             }
         }
@@ -67,10 +69,15 @@ pipeline {
             }
             steps {
                 uploadStage(
-                    packages: yapHelper.resolvePackageNames(),
                     ubuntuSinglePkg: true,
                     rockySinglePkg: true,
                 )
+            }
+        }
+
+        stage('Semantic Release') {
+            steps {
+                semanticRelease()
             }
         }
     }
