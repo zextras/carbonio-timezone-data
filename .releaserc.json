@@ -7,10 +7,12 @@
       {
         "preset": "conventionalcommits",
         "releaseRules": [
+          { "type": "feat", "release": "minor" },
+          { "type": "fix", "release": "patch" },
           { "type": "refactor", "release": "patch" },
           { "type": "build", "release": "patch" },
-          { "type": "ci", "release": "patch" },
-          { "type": "chore", "scope": "release", "release": false },
+          { "type": "ci", "release": false },
+          { "type": "chore", "release": false },
           { "type": "perf", "release": "patch" }
         ]
       }
