@@ -16,6 +16,6 @@ section="mail"
 priority="optional"
 
 package() {
-  install -D "${repodir}/timezone-data/timezones.ics" \
+  install -D "${repodir}/conf/timezones.ics" \
     "${pkgdir}/opt/zextras/conf/timezones.ics"
 }
